@@ -1,5 +1,7 @@
 import { FC, ReactNode } from 'react';
 import Head from 'next/head';
+import { ReplyIcon } from '@heroicons/react/solid';
+import Link from 'next/link';
 
 type Props = {
   title: string;
@@ -8,11 +10,16 @@ type Props = {
 
 const Layout: FC<Props> = ({ children, title = 'Mantine' }) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col">
       <Head>
         <title>{title}</title>
       </Head>
-      <header>Mantine Tutorial</header>
+      <header className="flex items-center">
+        <Link href="/">
+          <ReplyIcon className="mr-2 h-6 w-6 cursor-pointer text-gray-300" />
+        </Link>
+        Mantine Tutorial
+      </header>
       <main className="flex flex-1 flex-col justify-center p-4">
         {children}
       </main>
